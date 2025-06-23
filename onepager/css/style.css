@@ -8,7 +8,7 @@
     --spacing-base: 2rem;
     --transition-speed: 0.3s;
     --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
 }
 
 *,
@@ -41,7 +41,7 @@ img {
     width: 100%;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1rem);
     box-shadow: var(--box-shadow);
 }
 
@@ -50,7 +50,6 @@ img {
     justify-content: center;
     gap: 2rem;
     padding: 1.5rem;
-    
 }
 
 .nav__item{
@@ -105,19 +104,22 @@ main {
     padding: 2rem;
     background: rgba(0, 0, 0, 0.4);
     border-radius: var(--border-radius);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.5rem);
 }
 
 .hero__title {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
 }
 
 .section--skills {
     min-height: 100vh;
     padding: 6rem 2rem;
-    background: #f8f9fa;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .skills__content {
@@ -134,7 +136,7 @@ main {
 
 .skills__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 2rem;
     padding: 2rem;
 }
@@ -164,7 +166,7 @@ main {
 }
 
 .contact__content {
-    max-width: 600px;
+    max-width: 60rem;
     margin: 0 auto;
 }
 
@@ -195,7 +197,7 @@ main {
 .form__input {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #e1e1e1;
+    border: 0.2rem solid #e1e1e1;
     border-radius: var(--border-radius);
     transition: border-color var(--transition-speed);
 }
@@ -218,8 +220,8 @@ main {
 }
 
 .form__button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.15);
 }
 
 @keyframes fadeInUp {
@@ -253,4 +255,170 @@ main {
     .contact__form {
         padding: 2rem;
     }
+}
+
+
+/* flip card*/ 
+.card {
+  width: 30rem;
+  height: 20rem;
+  perspective: 100rem;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border: 1rem solid #6A2C70;
+  border-radius: 1rem;
+  justify-content: center;
+  font-size: 2.4rem;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border: 1rem solid #F08A5D;
+  border-radius: 1rem;
+  justify-content: center;
+  font-size: 2.4rem;
+  transform: rotateY(180deg);
+}
+
+
+/* showing skills*/
+
+@keyframes autoRun3d {
+  from {
+    transform: perspective(800px) rotateY(-360deg);
+  }
+  to {
+    transform: perspective(800px) rotateY(0deg);
+  }
+}
+
+@keyframes animateBrightness {
+  10% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.1);
+  }
+  90% {
+    filter: brightness(1);
+  }
+}
+
+.card-3d {
+  position: relative;
+  width: 40rem;
+  height: 20rem;
+  transform-style: preserve-3d;
+  transform: perspective(80rem);
+  animation: autoRun3d 20s linear infinite;
+  will-change: transform;
+  margin: 0 auto; /* Centers horizontally */
+}
+
+.card-3d-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.card-3d div {
+  position: absolute;
+  width: 8rem;
+  height: 11.2rem;
+  background-color: rgb(199, 199, 199);
+  border: 0.2rem solid lightgray;
+  border-radius: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  animation: animateBrightness 20s linear infinite;
+  transition-duration: 200ms;
+  will-change: transform, filter;
+}
+
+.card-3d:hover {
+  animation-play-state: paused !important;
+}
+
+.card-3d:hover div {
+  animation-play-state: paused !important;
+}
+
+.card-3d div:nth-child(1) {
+  transform: translate(-50%, -50%) rotateY(0deg) translateZ(15rem);
+  animation-delay: -0s;
+}
+
+.card-3d div:nth-child(2) {
+  transform: translate(-50%, -50%) rotateY(36deg) translateZ(15rem);
+  animation-delay: -2s;
+}
+
+.card-3d div:nth-child(3) {
+  transform: translate(-50%, -50%) rotateY(72deg) translateZ(15rem);
+  animation-delay: -4s;
+}
+
+.card-3d div:nth-child(4) {
+  transform: translate(-50%, -50%) rotateY(108deg) translateZ(15rem);
+  animation-delay: -6s;
+}
+
+.card-3d div:nth-child(5) {
+  transform: translate(-50%, -50%) rotateY(144deg) translateZ(15rem);
+  animation-delay: -8s;
+}
+
+.card-3d div:nth-child(6) {
+  transform: translate(-50%, -50%) rotateY(180deg) translateZ(15rem);
+  animation-delay: -10s;
+}
+
+.card-3d div:nth-child(7) {
+  transform: translate(-50%, -50%) rotateY(216deg) translateZ(15rem);
+  animation-delay: -12s;
+}
+
+.card-3d div:nth-child(8) {
+  transform: translate(-50%, -50%) rotateY(252deg) translateZ(15rem);
+  animation-delay: -14s;
+}
+
+.card-3d div:nth-child(9) {
+  transform: translate(-50%, -50%) rotateY(288deg) translateZ(15rem);
+  animation-delay: -16s;
+}
+
+.card-3d div:nth-child(10) {
+  transform: translate(-50%, -50%) rotateY(324deg) translateZ(15rem);
+  animation-delay: -18s;
 }

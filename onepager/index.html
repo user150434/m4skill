@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="js/main.js" defer></script>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
@@ -21,11 +23,20 @@
 
     <main>
         <section id="hero" class="section section--hero">
-                <img src="imgs/foto vanzelf.png" alt="Hero image" class="hero__image">
+            <img src="imgs/foto vanzelf.png" alt="Hero image" class="hero__image">
 
-            <div class="hero__content">
-                <h1 class="hero__title">Welcome to My Portfolio</h1>
+            <div class="card">
+                <!-- From Uiverse.io by vamsidevendrakumar -->
+                <div class="card-inner">
+                    <div class="card-front">
+                        <p>my portofolio</p>
+                    </div>
+                    <div class="card-back">
+                        <p>I'm Othman</p>
+                    </div>
+                </div>
             </div>
+
         </section>
 
         <section id="skills" class="section section--skills">
@@ -34,11 +45,13 @@
                 <div class="skills__grid">
                     <div class="skill__card">
                         <h3 class="skill__title">Web Development</h3>
-                        <p class="skill__description">HTML, CSS, JavaScript expertise with focus on modern frameworks and responsive design.</p>
+                        <p class="skill__description">HTML, CSS, JavaScript expertise with focus on modern frameworks
+                            and responsive design.</p>
                     </div>
                     <div class="skill__card">
                         <h3 class="skill__title">UX Design</h3>
-                        <p class="skill__description">Creating user-centered designs with attention to accessibility and usability.</p>
+                        <p class="skill__description">Creating user-centered designs with attention to accessibility and
+                            usability.</p>
                     </div>
                     <div class="skill__card">
                         <h3 class="skill__title">Backend Development</h3>
@@ -46,12 +59,26 @@
                     </div>
                 </div>
             </div>
+            <!-- From Uiverse.io by musashi-13 -->
+            <div class="card-3d">
+                <div> <img src="imgs/Naamloos.png" alt=""></div>
+                <div> <img src="imgs/CSS-Logo-2011.png" alt=""></div>
+                <div> <img src="imgs/Javascript-logo-facturatie-office.png" alt=""></div>
+                <div> <img src="imgs/image2-1.webp" alt=""></div>
+                <div> <img src="imgs/PHP-logo.svg.png" alt=""></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
         </section>
 
         <section id="contact" class="section section--contact">
             <div class="contact__content">
                 <h2 class="contact__title">Contact Me</h2>
-                <form class="contact__form" action="#" method="POST">
+                <form class="contact__form" action="#" method="POST" onsubmit="sendMail(event)">
                     <div class="form__group">
                         <label for="name" class="form__label">Name:</label>
                         <input type="text" id="name" name="name" class="form__input" required>
@@ -64,7 +91,7 @@
                         <label for="message" class="form__label">Message:</label>
                         <textarea id="message" name="message" class="form__input" required></textarea>
                     </div>
-                    <input type="hidden" name="send_to_mail" value="your@email.com">
+                    <input type="hidden" name="send_to_mail" value="39035@outlook.com">
                     <button type="submit" class="form__button">Send Message</button>
                 </form>
             </div>
@@ -72,4 +99,5 @@
     </main>
 
 </body>
+
 </html>
